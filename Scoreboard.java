@@ -1,30 +1,36 @@
 public class Scoreboard{
-    private boolean team1Active;
-    private boolean team1Score;
-    private boolean team2Score;
-    private String teamOnName
-    public Scoreboard(String team1, String team2){
-        team1Active = true;
-        if team1Active = true{
-            teamOnName= team1;
+    private boolean team1Active = true;
+    private int team1Score;
+    private int team2Score;
+    private String team1;
+    private String team2;
+    public Scoreboard(String one, String two){
+        team1 = one;
+        team2 = two;
+    }
+    //private String teamOnName=team1;
+    public void recordPlay(int pointsScored){
+        if(pointsScored == 0){
+            team1Active = !team1Active;
         }
         else{
-            teamOnName = team2
-        }
-    }
-    public static void recordPlay(int pointsScored)
-    {
-        if (pointsScored > 0 && team1Active = true){
-            int team1Score += pointsScored;
-            if(pointsScored > 0 && team1Active = false){
-                int team2Score += pointsScored;
+            if (team1Active == true && pointsScored > 0) {
+                team1Score=team1Score+pointsScored;
+                team1Active = true;                
             }
-        else{
-            !team1Active;
+            if (team1Active == false && pointsScored > 0){
+                team2Score = team2Score + pointsScored;
+                team1Active = false;
+            }
         }
-        }
+            
+        
     }
-    public static void getScore(){
-        return System.out.print("The current score is " + team1Score + "-" + team2Score + "- Team active is" + teamOnName);
+
+    public String getScore(){
+        String s = team1Score + "-" + team2Score + "-";
+        if(team1Active) s += team1;
+        else s+= team2;
+        return s;
     }
 }
