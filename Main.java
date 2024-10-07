@@ -22,5 +22,6 @@ public class Main{
         game.recordPlay(0);
         game.recordPlay(4);
         game.recordPlay(0);
+        System.out.println("test");
     }
 }
